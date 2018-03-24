@@ -1,0 +1,57 @@
+####################
+### Requirements ###
+####################
+
+- Python 3
+(Python 2 might work but is not recommended; you would need to change print statements and integer divisions at the least)
+
+- The following packages (several of them, if not all, might already be installed in your system):
+pandas
+glob
+os 
+datetime
+numpy
+sklearn
+matplotlib
+warnings
+
+################################
+### Instructions for running ###
+################################
+
+----- It is best to run the code in a Jupyter notebook to view the results after each block of code. 
+----- You can also run the python script but depending on the environment results may or may not get printed out. 
+----- Obviously, you can run it in blocks and print whatever you want as there are print statements in key points.
+
+
+- set the path variable at the start of the script to the path where the files are located
+For Windows, I recommend switching default separators with double backslash ('\\') in the path string
+For any other OS you should be fine. If you still have trouble reading the file, manually change directory separators to '\\' in the path string
+If you wish to read a different file format (or any file format) just change the '*.csv' to something appropriate in the following line:
+for filename in glob.glob(os.path.join(path, '*.csv')):
+
+
+- if you want to see the results of a particular algorithm I recommend you use the following lines:
+print(journeys_scored['anomaly_ma'].value_counts())
+journeys_scored.loc[journeys_scored['anomaly_ma'] == 1, ['Journey_ID']].Journey_ID.unique()
+
+Replace the 'anomaly_ma' value with the column name of the algorithm you wish to check.
+There is also commented-out code that prints the results of the algorithm for every iteration (i.e. every Journey_ID).
+You can turn it on but the results will get crowded.
+
+- if you want to see the graph for a different Journey_ID you can change the '21' to any Journey_ID you want in the following code:
+a = journeys_scored.loc[(anomaly_condition2) & (journeys_scored['Journey_ID'] == 21), 
+                        ['timestamp', 'acceleration']]
+b = journeys_scored.loc[journeys_scored['Journey_ID'] == 21]
+ax.plot(b['timestamp'], b['acceleration'], color='blue')
+ax.scatter(a['timestamp'],a['acceleration'], color='red')
+
+- if for whatever reason the following line doesn't work, just comment out lines 266 and 281:
+get_ipython().magic('matplotlib inline')
+
+
+
+If you have any questions, please let me know. This is my email:
+leftvaz@gmail.com
+
+

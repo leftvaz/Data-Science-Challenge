@@ -1,0 +1,22 @@
+python 3
+windows env
+in path replace sep with double backslash and then with os sep
+assuming each journey is different car (or at least one journey does not contain multiple cars)
+
+
+
+
+
+
+
+
+
+
+
+discussion:
+talk about accuracy vs precision/recall when we decide how many models to score with
+mention performance
+mention other techniques like clustering
+talk about how i intentinally used popular only python libraries
+talk about labelled data
+talk about variable selection (in supervised we can use stepwise model)
